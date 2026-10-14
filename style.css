@@ -144,3 +144,6 @@ details p { padding: 0 20px 18px; color: var(--muted); font-size: 15px; }
   .menu-row.new span:last-child { font-size: 22px; }
   .menu-row span:last-child { white-space: nowrap; }
 }
+
+.result { background: var(--washi); border-left: 4px solid var(--shu); padding: 10px 14px; font-size: 15px; }
+.result b { color: var(--shu); font-size: 18px; }
