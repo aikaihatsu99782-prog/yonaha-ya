@@ -1,0 +1,161 @@
+/* ==========================================================
+   ヨナハ屋 ホームページの見た目のルール
+   色は最初にまとめて決めておき、下ではその名前で使う
+   ========================================================== */
+:root {
+  --sumi: #17130f;     /* 墨の黒(背景) */
+  --sumi2: #241e19;
+  --kin: #c9a45c;      /* 金 */
+  --kin-light: #f0d79a;
+  --washi: #f6efe1;    /* 和紙の白 */
+  --ink: #1c1714;      /* 文字の黒 */
+  --shu: #b3261e;      /* 判子の赤 */
+  --muted: #6b5d4f;    /* うすい文字 */
+}
+
+/* ---------- 全体の基本 ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  color: var(--ink);
+  background: #fff;
+  line-height: 1.9;
+}
+h1, h2, h3, .name, .price, .foot-name { font-family: "Noto Serif JP", serif; }
+a { color: inherit; }
+
+/* ---------- ① 一番上 ---------- */
+.hero {
+  background: radial-gradient(ellipse at 30% 30%, #2a2420, var(--sumi) 70%);
+  color: var(--washi);
+  padding: 72px 20px 80px;
+  text-align: center;
+  border-bottom: 4px solid var(--kin);
+}
+.hero-inner { max-width: 760px; margin: 0 auto; }
+.logo { width: 120px; border-radius: 12px; margin-bottom: 24px; }
+.eyebrow { color: var(--kin); letter-spacing: .25em; font-size: 14px; }
+.hero h1 { font-size: clamp(30px, 6vw, 52px); line-height: 1.35; margin: 14px 0 20px; font-weight: 900; }
+.gold {
+  background: linear-gradient(180deg, #f6e3ae, #d4b06a 45%, #a07a35 80%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.lead { color: #d8ccb4; font-size: 16px; }
+.buttons { margin-top: 32px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* ボタン */
+.btn {
+  display: inline-block; padding: 14px 28px; border-radius: 4px;
+  text-decoration: none; font-weight: 700; font-size: 15px;
+}
+.btn-main { background: var(--shu); color: #fff; }
+.btn-sub { border: 1px solid var(--kin); color: var(--kin-light); }
+.btn:hover { opacity: .85; }
+
+/* ---------- 各ブロック共通 ---------- */
+.section { max-width: 880px; margin: 0 auto; padding: 72px 20px; }
+.section h2 {
+  font-size: clamp(24px, 4vw, 32px); text-align: center; margin-bottom: 32px;
+  letter-spacing: .08em;
+}
+.section h2::after {          /* 見出しの下の金の線 */
+  content: ""; display: block; width: 48px; height: 2px;
+  background: var(--kin); margin: 14px auto 0;
+}
+.washi { background: var(--washi); max-width: none; }
+.washi > * { max-width: 840px; margin-left: auto; margin-right: auto; }
+.dark { background: var(--sumi); color: var(--washi); max-width: none; }
+.dark > * { max-width: 840px; margin-left: auto; margin-right: auto; }
+.center { text-align: center; }
+.small { font-size: 14px; margin-top: 20px; }
+.muted { color: #a89a85; }
+.red { color: var(--shu); }
+
+/* ---------- ② こんなお店に ---------- */
+.checks { list-style: none; max-width: 600px; margin: 0 auto; }
+.checks li { padding: 14px 0 14px 34px; border-bottom: 1px solid #e8dfcf; position: relative; }
+.checks li::before { content: "✓"; position: absolute; left: 6px; color: var(--shu); font-weight: 700; }
+
+/* ---------- ③ LINE限定メニュー ---------- */
+.menu { background: #fff; border: 1px solid #d9ccb3; padding: 28px; margin: 28px auto; max-width: 600px; }
+.menu-row { display: flex; align-items: baseline; gap: 10px; font-family: "Noto Serif JP", serif; }
+.menu-row i { flex: 1; border-bottom: 2px dotted #bbb; }
+.menu-row.old { color: #8a7d6e; font-size: 18px; }
+.menu-row.new { font-size: 22px; font-weight: 900; margin-top: 10px; }
+.menu-row.new span:last-child { color: var(--shu); font-size: 28px; }
+.menu-note { font-size: 13px; color: var(--muted); margin-top: 12px; }
+
+.reasons { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+.reasons div { background: #fff; padding: 20px; border-top: 3px solid var(--shu); }
+.reasons b { color: var(--shu); font-family: "Noto Serif JP", serif; }
+.reasons h3 { font-size: 17px; margin: 4px 0; }
+.reasons p { font-size: 14px; color: var(--muted); }
+
+/* ---------- ④ 流れ ---------- */
+.steps { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+.steps li { border: 1px solid #e3d8c4; padding: 22px; }
+.steps b { font-family: "Noto Serif JP", serif; font-size: 28px; color: var(--kin); }
+.steps h3 { font-size: 18px; }
+.steps p { font-size: 14px; color: var(--muted); }
+.who { display: inline-block; margin-top: 10px; font-size: 12px; border: 1px solid var(--kin); color: #8b6d2f; padding: 0 10px; }
+
+/* ---------- ⑤ プラン ---------- */
+.plans { margin-bottom: 36px; }
+.plan {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px;
+  padding: 18px 0; border-bottom: 1px solid rgba(201,164,92,.35);
+}
+.plan .name { font-size: 20px; font-weight: 700; min-width: 170px; }
+.plan .desc { color: #bfb29a; font-size: 14px; }
+.plan i { flex: 1; border-bottom: 1px dotted rgba(201,164,92,.5); min-width: 30px; }
+.plan .price { font-size: 26px; font-weight: 900; }
+.plan .price small { font-size: 14px; }
+.plan.rec .name, .plan.rec .price { color: var(--kin-light); }
+.plan em { font-style: normal; font-size: 12px; background: var(--shu); color: #fff; padding: 2px 8px; vertical-align: middle; }
+
+.keep { border: 1px solid rgba(201,164,92,.5); padding: 24px; margin-bottom: 32px; }
+.keep h3 { color: var(--kin-light); margin-bottom: 8px; }
+.keep p { color: #d8ccb4; font-size: 15px; }
+.keep ul { margin: 12px 0 0 20px; color: var(--washi); }
+
+/* ---------- ⑥ プロフィール ---------- */
+.about { display: flex; gap: 28px; align-items: flex-start; }
+.about img { width: 140px; border-radius: 12px; flex-shrink: 0; }
+.about p + p { margin-top: 12px; }
+
+/* ---------- ⑦ よくある質問 ---------- */
+details { background: #fff; border: 1px solid #e3d8c4; margin-bottom: 10px; }
+summary { padding: 16px 20px; cursor: pointer; font-weight: 700; }
+details p { padding: 0 20px 18px; color: var(--muted); font-size: 15px; }
+
+/* ---------- ⑧ 一番下 ---------- */
+.footer { background: var(--sumi); color: #a89a85; text-align: center; padding: 40px 20px; font-size: 14px; }
+.foot-name { color: var(--kin-light); font-size: 22px; margin-bottom: 6px; }
+
+/* ---------- スマホ用の調整(画面幅600px以下) ---------- */
+@media (max-width: 600px) {
+  .hero { padding: 56px 16px 64px; }
+  .section { padding: 56px 16px; }
+  .about { flex-direction: column; align-items: center; }
+  .plan .name { min-width: 0; width: 100%; }
+  .plan i { display: none; }
+  .menu { padding: 20px; }
+  .menu-row.new { font-size: 18px; }
+  .menu-row.new span:last-child { font-size: 22px; }
+  .menu-row span:last-child { white-space: nowrap; }
+}
+
+.result { background: var(--washi); border-left: 4px solid var(--shu); padding: 10px 14px; font-size: 15px; }
+.result b { color: var(--shu); font-size: 18px; }
+
+.menus { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 28px auto 8px; }
+.mcard { background: #fff; border: 1px solid #d9ccb3; border-top: 4px solid var(--shu); padding: 22px; }
+.mtag { font-size: 12px; letter-spacing: .15em; color: var(--shu); font-weight: 700; }
+.mcard h3 { font-size: 19px; margin: 4px 0 10px; line-height: 1.5; }
+.mcard .menu-row.old { font-size: 14px; }
+.mcard .menu-row.new { font-size: 16px; margin-top: 4px; }
+.mcard .menu-row.new span:last-child { font-size: 20px; }
+.mdesc { font-size: 14px; color: var(--muted); }
+.why { font-size: 14px; margin-top: 12px; padding-top: 12px; border-top: 1px dashed #d9ccb3; }
+.why b { display: block; color: var(--shu); font-size: 13px; margin-bottom: 2px; }
+.menu-note { margin-bottom: 28px; }
